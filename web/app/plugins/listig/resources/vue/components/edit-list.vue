@@ -73,6 +73,9 @@
                 axios.defaults.headers.common['X-WP-Nonce'] = listig.nonce;
                 axios.post(listig.restUrl + '/listing/' + self.form.id, self.form)
                     .then(function (response) {
+                        self.form.name='';
+                        self.form.description='';
+                        self.form.private=false;
                         self.moduleClass = 'modal';
                     });
             },
