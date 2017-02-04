@@ -12,8 +12,9 @@ let mix = require('laravel-mix');
  */
 
 mix.js('resources/js/app.js', 'assets/js/')
-   .sass('resources/sass/app.scss', 'assets/css/')
-    .copy('node_modules/font-awesome/fonts', 'assets/fonts');
+    .sass('resources/sass/app.scss', 'assets/css/')
+    .copy('node_modules/font-awesome/fonts', 'assets/fonts')
+    .copy('resources/js/main-page.js', 'assets/js');
 
 // Full API
 // mix.js(src, output);
