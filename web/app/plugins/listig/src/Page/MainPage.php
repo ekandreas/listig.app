@@ -8,7 +8,7 @@ class MainPage {
     }
 
     public function view() {
-        return '<br/>Listig';
+        return '<br/><h2><i class="fa fa-list-ul"></i> Listig</h2>';
     }
 
 }
