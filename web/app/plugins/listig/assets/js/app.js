@@ -11566,6 +11566,8 @@ if(false) {
 //
 //
 //
+//
+//
 
 module.exports = {};
 
@@ -11578,7 +11580,7 @@ exports = module.exports = __webpack_require__(2)();
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n.post-label {\n    float:right;\n}\n", ""]);
 
 // exports
 
@@ -11632,9 +11634,13 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "panel"
   }, [_c('p', {
     staticClass: "panel-heading"
-  }, [_vm._v("\n            Post Search\n        ")]), _vm._v(" "), _c('div', {
+  }, [_vm._v("\n        Post Search\n    ")]), _vm._v(" "), _c('div', {
     staticClass: "panel-block"
-  }, [_c('p', {
+  }, [_c('div', {
+    staticClass: "columns"
+  }, [_c('div', {
+    staticClass: "column is-4"
+  }, [_c('div', {
     staticClass: "control has-icon"
   }, [_c('input', {
     staticClass: "input is-small",
@@ -11646,51 +11652,39 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "icon is-small"
   }, [_c('i', {
     staticClass: "fa fa-search"
-  })])])]), _vm._v(" "), _c('p', {
-    staticClass: "panel-tabs"
-  }, [_c('a', {
-    staticClass: "is-active"
-  }, [_vm._v("All")]), _vm._v(" "), _c('a', [_vm._v("Public")]), _vm._v(" "), _c('a', [_vm._v("Private")]), _vm._v(" "), _c('a', [_vm._v("Sources")]), _vm._v(" "), _c('a', [_vm._v("Forks")])]), _vm._v(" "), _c('a', {
+  })])])]), _vm._v(" "), _c('div', {
+    staticClass: "column is-4"
+  }, [_c('div', {
+    staticClass: "control"
+  }, [_c('p', {
+    staticClass: "control"
+  }, [_c('span', {
+    staticClass: "select is-small"
+  }, [_c('select', [_c('option', [_vm._v("Select author")]), _vm._v(" "), _c('option', [_vm._v("With options")])])])])])]), _vm._v(" "), _c('div', {
+    staticClass: "column is-4"
+  }, [_c('div', {
+    staticClass: "control"
+  }, [_c('p', {
+    staticClass: "control"
+  }, [_c('span', {
+    staticClass: "select is-small"
+  }, [_c('select', [_c('option', [_vm._v("Select post type")]), _vm._v(" "), _c('option', [_vm._v("With options")])])])])])])])]), _vm._v(" "), _c('a', {
+    staticClass: "panel-block"
+  }, [_c('strong', [_vm._v("post title 1")])]), _vm._v(" "), _c('a', {
     staticClass: "panel-block is-active"
-  }, [_c('span', {
-    staticClass: "panel-icon"
-  }, [_c('i', {
-    staticClass: "fa fa-book"
-  })]), _vm._v("\n            bulma\n        ")]), _vm._v(" "), _c('a', {
+  }, [_c('strong', [_vm._v("post title 2")])]), _vm._v(" "), _c('a', {
     staticClass: "panel-block"
-  }, [_c('span', {
-    staticClass: "panel-icon"
-  }, [_c('i', {
-    staticClass: "fa fa-book"
-  })]), _vm._v("\n            marksheet\n        ")]), _vm._v(" "), _c('a', {
-    staticClass: "panel-block"
-  }, [_c('span', {
-    staticClass: "panel-icon"
-  }, [_c('i', {
-    staticClass: "fa fa-book"
-  })]), _vm._v("\n            minireset.css\n        ")]), _vm._v(" "), _c('a', {
-    staticClass: "panel-block"
-  }, [_c('span', {
-    staticClass: "panel-icon"
-  }, [_c('i', {
-    staticClass: "fa fa-book"
-  })]), _vm._v("\n            jgthms.github.io\n        ")]), _vm._v(" "), _c('a', {
-    staticClass: "panel-block"
-  }, [_c('span', {
-    staticClass: "panel-icon"
-  }, [_c('i', {
-    staticClass: "fa fa-code-fork"
-  })]), _vm._v("\n            daniellowtw/infBoard\n        ")]), _vm._v(" "), _c('a', {
-    staticClass: "panel-block"
-  }, [_c('span', {
-    staticClass: "panel-icon"
-  }, [_c('i', {
-    staticClass: "fa fa-code-fork"
-  })]), _vm._v("\n            mojs\n        ")]), _vm._v(" "), _c('div', {
+  }, [_c('strong', [_vm._v("post title 3")]), _vm._v("\n         \n        "), _c('span', {
+    staticClass: "tag is-info pull-right post-label"
+  }, [_vm._v("33")])]), _vm._v(" "), _c('div', {
     staticClass: "panel-block"
   }, [_c('button', {
-    staticClass: "button is-primary is-outlined is-fullwidth"
-  }, [_vm._v("\n                Reset all filters\n            ")])])])
+    staticClass: "button is-outlined"
+  }, [_vm._v("\n            1\n        ")]), _vm._v(" \n        "), _c('button', {
+    staticClass: "button is-outlined"
+  }, [_vm._v("\n            2\n        ")]), _vm._v(" \n        "), _c('button', {
+    staticClass: "button is-outlined"
+  }, [_vm._v("\n            3\n        ")])])])
 }]}
 module.exports.render._withStripped = true
 if (false) {

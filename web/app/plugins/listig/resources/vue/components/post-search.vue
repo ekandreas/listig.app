@@ -4,59 +4,61 @@
                 Post Search
             </p>
             <div class="panel-block">
-                <p class="control has-icon">
-                    <input class="input is-small" type="text" placeholder="Search">
-                    <span class="icon is-small">
-        <i class="fa fa-search"></i>
-      </span>
-                </p>
+                <div class="columns">
+                    <div class="column is-4">
+                        <div class="control has-icon">
+                            <input class="input is-small" type="text" placeholder="Search">
+                            <span class="icon is-small">
+                                <i class="fa fa-search"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="column is-4">
+                        <div class="control">
+                            <p class="control">
+                                <span class="select is-small">
+                                    <select>
+                                      <option>Select author</option>
+                                      <option>With options</option>
+                                    </select>
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="column is-4">
+                        <div class="control">
+                            <p class="control">
+                                <span class="select is-small">
+                                    <select>
+                                      <option>Select post type</option>
+                                      <option>With options</option>
+                                    </select>
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <p class="panel-tabs">
-                <a class="is-active">All</a>
-                <a>Public</a>
-                <a>Private</a>
-                <a>Sources</a>
-                <a>Forks</a>
-            </p>
+            <a class="panel-block">
+                <strong>post title 1</strong>
+            </a>
             <a class="panel-block is-active">
-    <span class="panel-icon">
-      <i class="fa fa-book"></i>
-    </span>
-                bulma
+                <strong>post title 2</strong>
             </a>
             <a class="panel-block">
-    <span class="panel-icon">
-      <i class="fa fa-book"></i>
-    </span>
-                marksheet
-            </a>
-            <a class="panel-block">
-    <span class="panel-icon">
-      <i class="fa fa-book"></i>
-    </span>
-                minireset.css
-            </a>
-            <a class="panel-block">
-    <span class="panel-icon">
-      <i class="fa fa-book"></i>
-    </span>
-                jgthms.github.io
-            </a>
-            <a class="panel-block">
-    <span class="panel-icon">
-      <i class="fa fa-code-fork"></i>
-    </span>
-                daniellowtw/infBoard
-            </a>
-            <a class="panel-block">
-    <span class="panel-icon">
-      <i class="fa fa-code-fork"></i>
-    </span>
-                mojs
+                <strong>post title 3</strong>
+                &nbsp;
+                <span class="tag is-info pull-right post-label">33</span>
             </a>
             <div class="panel-block">
-                <button class="button is-primary is-outlined is-fullwidth">
-                    Reset all filters
+                <button class="button is-outlined">
+                    1
+                </button>&nbsp;
+                <button class="button is-outlined">
+                    2
+                </button>&nbsp;
+                <button class="button is-outlined">
+                    3
                 </button>
             </div>
         </nav>
@@ -68,4 +70,7 @@
 </script>
 
 <style>
+    .post-label {
+        float:right;
+    }
 </style>
