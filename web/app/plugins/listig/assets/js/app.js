@@ -11569,7 +11569,30 @@ if(false) {
 //
 //
 
-module.exports = {};
+module.exports = {
+    mounted: function mounted() {
+        var self = this;
+        axios.defaults.headers.common['X-WP-Nonce'] = listig.nonce;
+        axios.get(listig.restUrl + '/author').then(function (response) {
+            self.authors = response.data;
+        });
+        axios.get(listig.restUrl + '/posttype').then(function (response) {
+            self.posttypes = response.data;
+        });
+    },
+    data: function data() {
+        return {
+            authors: [],
+            posttypes: [],
+            form: {
+                author: 0,
+                search: '',
+                posttype: ''
+            },
+            lang: listig.lang
+        };
+    }
+};
 
 /***/ }),
 /* 65 */
@@ -11628,8 +11651,6 @@ module.exports = Component.exports
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _vm._m(0)
-},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('nav', {
     staticClass: "panel"
   }, [_c('p', {
@@ -11638,7 +11659,37 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "panel-block"
   }, [_c('div', {
     staticClass: "columns"
+  }, [_vm._m(0), _vm._v(" "), _c('div', {
+    staticClass: "column is-4"
   }, [_c('div', {
+    staticClass: "control"
+  }, [_c('p', {
+    staticClass: "control"
+  }, [_c('span', {
+    staticClass: "select is-small"
+  }, [_c('select', [_c('option', [_vm._v("-- no author --")]), _vm._v(" "), _vm._l((_vm.authors), function(author) {
+    return _c('option', {
+      attrs: {
+        "value": "author.data.ID"
+      }
+    }, [_vm._v(_vm._s(author.data.display_name))])
+  })], 2)])])])]), _vm._v(" "), _c('div', {
+    staticClass: "column is-4"
+  }, [_c('div', {
+    staticClass: "control"
+  }, [_c('p', {
+    staticClass: "control"
+  }, [_c('span', {
+    staticClass: "select is-small"
+  }, [_c('select', [_c('option', [_vm._v("-- no posttype --")]), _vm._v(" "), _vm._l((_vm.posttypes), function(posttype) {
+    return _c('option', {
+      attrs: {
+        "value": "posttype.name"
+      }
+    }, [_vm._v(_vm._s(posttype.label))])
+  })], 2)])])])])])]), _vm._v(" "), _vm._m(1), _vm._v(" "), _vm._m(2), _vm._v(" "), _vm._m(3), _vm._v(" "), _vm._m(4)])
+},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
     staticClass: "column is-4"
   }, [_c('div', {
     staticClass: "control has-icon"
@@ -11652,31 +11703,23 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "icon is-small"
   }, [_c('i', {
     staticClass: "fa fa-search"
-  })])])]), _vm._v(" "), _c('div', {
-    staticClass: "column is-4"
-  }, [_c('div', {
-    staticClass: "control"
-  }, [_c('p', {
-    staticClass: "control"
-  }, [_c('span', {
-    staticClass: "select is-small"
-  }, [_c('select', [_c('option', [_vm._v("Select author")]), _vm._v(" "), _c('option', [_vm._v("With options")])])])])])]), _vm._v(" "), _c('div', {
-    staticClass: "column is-4"
-  }, [_c('div', {
-    staticClass: "control"
-  }, [_c('p', {
-    staticClass: "control"
-  }, [_c('span', {
-    staticClass: "select is-small"
-  }, [_c('select', [_c('option', [_vm._v("Select post type")]), _vm._v(" "), _c('option', [_vm._v("With options")])])])])])])])]), _vm._v(" "), _c('a', {
+  })])])])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('a', {
     staticClass: "panel-block"
-  }, [_c('strong', [_vm._v("post title 1")])]), _vm._v(" "), _c('a', {
+  }, [_c('strong', [_vm._v("post title 1")])])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('a', {
     staticClass: "panel-block is-active"
-  }, [_c('strong', [_vm._v("post title 2")])]), _vm._v(" "), _c('a', {
+  }, [_c('strong', [_vm._v("post title 2")])])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('a', {
     staticClass: "panel-block"
   }, [_c('strong', [_vm._v("post title 3")]), _vm._v("\n         \n        "), _c('span', {
     staticClass: "tag is-info pull-right post-label"
-  }, [_vm._v("33")])]), _vm._v(" "), _c('div', {
+  }, [_vm._v("33")])])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
     staticClass: "panel-block"
   }, [_c('button', {
     staticClass: "button is-outlined"
@@ -11684,7 +11727,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "button is-outlined"
   }, [_vm._v("\n            2\n        ")]), _vm._v(" \n        "), _c('button', {
     staticClass: "button is-outlined"
-  }, [_vm._v("\n            3\n        ")])])])
+  }, [_vm._v("\n            3\n        ")])])
 }]}
 module.exports.render._withStripped = true
 if (false) {

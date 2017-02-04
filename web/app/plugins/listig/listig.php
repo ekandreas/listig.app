@@ -26,5 +26,7 @@ add_action( 'admin_menu', 'EkAndreas\Listig\Menu\AdminMenu::register' );
 add_action( 'admin_enqueue_scripts', 'EkAndreas\Listig\Setup\Script::register' );
 
 new \EkAndreas\Listig\Route\RouteService([
-   EkAndreas\Listig\Controller\ListingController::class,
+    EkAndreas\Listig\Controller\ListingController::class,
+    EkAndreas\Listig\Controller\AuthorController::class,
+    EkAndreas\Listig\Controller\PostTypeController::class,
 ]);
