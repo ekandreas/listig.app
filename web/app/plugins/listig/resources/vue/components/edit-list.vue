@@ -3,15 +3,38 @@
         <div class="modal-background"></div>
         <div class="modal-card">
             <header class="modal-card-head">
-                <p class="modal-card-title">{{ editLabel }}</p>
+                <p class="modal-card-title">{{ lang.editLabel }}</p>
                 <button class="delete" @click="close"></button>
             </header>
             <section class="modal-card-body">
-                CONTENT
+                <label class="label">{{ lang.nameLabel }}</label>
+                <p class="control">
+                    <input  ref="editName"
+                            class="input"
+                            type="text"
+                            :placeholder="lang.namePlaceholder"
+                            v-model="form.name"
+                    >
+                </p>
+                <label class="label">{{ lang.descriptionLabel }}</label>
+                <p class="control">
+                    <textarea
+                            class="textarea"
+                            :placeholder="lang.descriptionPlaceholder"
+                            v-model="form.description">
+                    </textarea>
+                </p>
+                <p class="control">
+                    <label class="checkbox">
+                        <input type="checkbox" v-model="form.private">
+                        {{ lang.privateLabel }}
+                    </label>
+                </p>
             </section>
             <footer class="modal-card-foot">
-                <a class="button is-success">{{ saveLabel }}</a>
-                <a class="button" @click="close">{{ cancelLabel }}</a>
+                <a class="button is-success">{{ lang.saveLabel }}</a>
+                <a class="button" @click="close">{{ lang.cancelLabel }}</a>
+                <a class="button is-danger" @click="destroy">{{ lang.destroyLabel }}</a>
             </footer>
         </div>
     </div>
@@ -22,21 +45,30 @@
         data: function () {
             return {
                 moduleClass: 'modal',
-                settingsLabel: wplang.settings,
-                newListLabel: wplang.newList,
-                editLabel: wplang.editLabel,
-                saveLabel: wplang.saveLabel,
-                cancelLabel: wplang.cancelLabel
+                form: {
+                    name: '',
+                    description: '',
+                    private: false
+                },
+                lang: wplang,
             }
         },
         methods: {
             edit: function () {
-                var self = this;
+                let self = this;
 
                 self.moduleClass = 'modal is-active';
+                setTimeout(function() {
+                    self.$refs.editName.focus();
+                }, 500);
             },
             close: function () {
-                var self = this;
+                let self = this;
+
+                self.moduleClass = 'modal';
+            },
+            destroy: function () {
+                let self = this;
 
                 self.moduleClass = 'modal';
             }
