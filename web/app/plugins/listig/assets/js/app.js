@@ -2175,11 +2175,12 @@ module.exports = {
         return {
             moduleClass: 'modal',
             form: {
+                id: 0,
                 name: '',
                 description: '',
                 private: false
             },
-            lang: wplang
+            lang: listig.lang
         };
     },
     methods: {
@@ -2195,6 +2196,13 @@ module.exports = {
             var self = this;
 
             self.moduleClass = 'modal';
+        },
+        save: function save() {
+            var self = this;
+            axios.defaults.headers.common['X-WP-Nonce'] = listig.nonce;
+            axios.post(listig.restUrl + '/listing/' + self.form.id, self.form).then(function (response) {
+                self.moduleClass = 'modal';
+            });
         },
         destroy: function destroy() {
             var self = this;
@@ -2257,8 +2265,7 @@ module.exports = {
 module.exports = {
     data: function data() {
         return {
-            settingsLabel: wplang.settings,
-            newListLabel: wplang.newList
+            lang: listig.lang
         };
     },
     methods: {
@@ -2331,7 +2338,7 @@ exports = module.exports = __webpack_require__(2)();
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -2481,14 +2488,14 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     on: {
       "click": _vm.newList
     }
-  }, [_vm._m(1), _vm._v("\n                     " + _vm._s(_vm.newListLabel) + "\n                ")])])]), _vm._v(" "), _vm._m(2), _vm._v(" "), _c('div', {
+  }, [_vm._m(1), _vm._v("\n                     " + _vm._s(_vm.lang.newListLabel) + "\n                ")])])]), _vm._v(" "), _vm._m(2), _vm._v(" "), _c('div', {
     staticClass: "nav-right nav-menu"
   }, [_c('a', {
     staticClass: "nav-item",
     attrs: {
       "href": "?page=listig/settings"
     }
-  }, [_vm._v("\n                " + _vm._s(_vm.settingsLabel) + "\n            ")])])]), _vm._v(" "), _c('edit-list', {
+  }, [_vm._v("\n                " + _vm._s(_vm.lang.settingsLabel) + "\n            ")])])]), _vm._v(" "), _c('edit-list', {
     ref: "editList"
   })], 1)
 },staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -2628,7 +2635,10 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }), _vm._v("\n                    " + _vm._s(_vm.lang.privateLabel) + "\n                ")])])]), _vm._v(" "), _c('footer', {
     staticClass: "modal-card-foot"
   }, [_c('a', {
-    staticClass: "button is-success"
+    staticClass: "button is-success",
+    on: {
+      "click": _vm.save
+    }
   }, [_vm._v(_vm._s(_vm.lang.saveLabel))]), _vm._v(" "), _c('a', {
     staticClass: "button",
     on: {

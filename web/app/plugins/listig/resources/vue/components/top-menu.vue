@@ -15,7 +15,7 @@
                     <span class="icon is-small new-icon">
                         <i class="fa fa-plus"></i>
                     </span>
-                        &nbsp;{{ newListLabel }}
+                        &nbsp;{{ lang.newListLabel }}
                     </a>
                 </div>
             </div>
@@ -32,7 +32,7 @@
             <!-- Add the modifier "is-active" to display it on mobile -->
             <div class="nav-right nav-menu">
                 <a class="nav-item" href="?page=listig/settings">
-                    {{ settingsLabel }}
+                    {{ lang.settingsLabel }}
                 </a>
             </div>
 
@@ -47,8 +47,7 @@
     module.exports = {
         data: function() {
             return {
-                settingsLabel: wplang.settings,
-                newListLabel: wplang.newList
+                lang: listig.lang
             }
         },
         methods: {

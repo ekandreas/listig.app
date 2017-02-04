@@ -9,11 +9,11 @@
             <section class="modal-card-body">
                 <label class="label">{{ lang.nameLabel }}</label>
                 <p class="control">
-                    <input  ref="editName"
-                            class="input"
-                            type="text"
-                            :placeholder="lang.namePlaceholder"
-                            v-model="form.name"
+                    <input ref="editName"
+                           class="input"
+                           type="text"
+                           :placeholder="lang.namePlaceholder"
+                           v-model="form.name"
                     >
                 </p>
                 <label class="label">{{ lang.descriptionLabel }}</label>
@@ -32,7 +32,7 @@
                 </p>
             </section>
             <footer class="modal-card-foot">
-                <a class="button is-success">{{ lang.saveLabel }}</a>
+                <a class="button is-success" @click="save">{{ lang.saveLabel }}</a>
                 <a class="button" @click="close">{{ lang.cancelLabel }}</a>
                 <a class="button is-danger" @click="destroy">{{ lang.destroyLabel }}</a>
             </footer>
@@ -46,11 +46,12 @@
             return {
                 moduleClass: 'modal',
                 form: {
+                    id: 0,
                     name: '',
                     description: '',
                     private: false
                 },
-                lang: wplang,
+                lang: listig.lang,
             }
         },
         methods: {
@@ -58,7 +59,7 @@
                 let self = this;
 
                 self.moduleClass = 'modal is-active';
-                setTimeout(function() {
+                setTimeout(function () {
                     self.$refs.editName.focus();
                 }, 500);
             },
@@ -66,6 +67,14 @@
                 let self = this;
 
                 self.moduleClass = 'modal';
+            },
+            save: function () {
+                let self = this;
+                axios.defaults.headers.common['X-WP-Nonce'] = listig.nonce;
+                axios.post(listig.restUrl + '/listing/' + self.form.id, self.form)
+                    .then(function (response) {
+                        self.moduleClass = 'modal';
+                    });
             },
             destroy: function () {
                 let self = this;

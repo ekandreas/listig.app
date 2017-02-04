@@ -6,8 +6,8 @@ class Script
     public static function translations()
     {
         return [
-            'settings' => __('Settings'),
-            'newList' => __('New list', 'listig'),
+            'settingsLabel' => __('Settings'),
+            'newListLabel' => __('New list', 'listig'),
             'editLabel' => __('Edit list properties', 'listig'),
             'saveLabel' => __('Save'),
             'cancelLabel' => __('Cancel'),
