@@ -51,15 +51,15 @@ class ListingModel
     {
         if ($this->id == 0) {
             $this->id = wp_insert_post([
-                'post_content' => json_encode($this, JSON_UNESCAPED_UNICODE),
+                'post_title' => $this->name,
                 'post_type' => $this::postType,
                 'post_status' => 'publish',
             ]);
-            return $this;
         }
 
         wp_update_post([
             'ID' => $this->id,
+            'post_title' => $this->name,
             'post_content' => json_encode($this, JSON_UNESCAPED_UNICODE),
         ]);
 
