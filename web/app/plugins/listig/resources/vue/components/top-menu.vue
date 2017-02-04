@@ -1,7 +1,6 @@
 <template>
 
-    <div>
-        <nav class="nav">
+        <nav class="nav has-shadow top-menu">
 
             <div class="nav-left">
                 <a class="nav-item">
@@ -38,9 +37,6 @@
 
         </nav>
 
-        <edit-list ref="editList"></edit-list>
-    </div>
-
 </template>
 
 <script>
@@ -54,11 +50,9 @@
             newList: function() {
                 let self = this;
 
-                self.$refs.editList.edit();
+                window.eventBus.$emit('list-edit');
+                //self.$refs.editList.edit();
             }
-        },
-        components: {
-            'edit-list': ListigEditList
         }
     };
 </script>
@@ -66,5 +60,9 @@
 <style>
     .new-icon {
         margin-top: 6px;
+    }
+
+    .top-menu {
+        background-color: whitesmoke;
     }
 </style>

@@ -16,11 +16,13 @@
             </div>
 
             <div class="column">
-                <post-edit></post-edit>
                 <post-preview></post-preview>
+                <post-edit></post-edit>
             </div>
 
         </div>
+
+        <list-edit ref="listEdit"></list-edit>
 
     </div>
 </template>
@@ -28,7 +30,10 @@
 <script>
     module.exports = {
         component: ListigTopMenu,
-        props: ['title']
+        props: ['title'],
+        components: {
+            'listEdit': ListigListEdit
+        }
     };
 </script>
 

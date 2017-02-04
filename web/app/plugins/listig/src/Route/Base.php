@@ -11,7 +11,7 @@ class Base
         self::register($path, [
             'methods' => 'GET',
             'callback' => Base::resolved($classFunction),
-            'permission_callback' => $auth ? __CLASS__.'permission' : null,
+            'permission_callback' => $auth ? __CLASS__.'::permission' : null,
         ]);
     }
 

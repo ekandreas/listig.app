@@ -35,7 +35,7 @@
         </div>
         <div class="panel-block">
             <div class="control">
-                <button class="button is-primary">Save</button>
+                <button class="button is-primary is-outlined is-fullwidth">Save</button>
             </div>
         </div>
     </div>

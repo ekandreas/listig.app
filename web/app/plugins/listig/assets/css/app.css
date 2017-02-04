@@ -7143,3 +7143,7 @@ label.panel-block:hover {
   background-color: whitesmoke;
   padding: 3rem 1.5rem 6rem;
 }
+
+#wpwrap {
+  background-color: #fff;
+}

@@ -3,7 +3,7 @@
         <div class="modal-background"></div>
         <div class="modal-card">
             <header class="modal-card-head">
-                <p class="modal-card-title">{{ lang.editLabel }}</p>
+                <p class="modal-card-title">{{ lang.editLabel }} {{ form.id }}</p>
                 <button class="delete" @click="close"></button>
             </header>
             <section class="modal-card-body">
@@ -42,6 +42,15 @@
 
 <script>
     module.exports = {
+        mounted: function () {
+            let self = this;
+        },
+        created: function () {
+            let self = this;
+            window.eventBus.$on('list-edit', function (list) {
+                self.edit(list);
+            });
+        },
         data: function () {
             return {
                 moduleClass: 'modal',
@@ -55,8 +64,13 @@
             }
         },
         methods: {
-            edit: function () {
+            edit: function (list) {
                 let self = this;
+
+                self.form.id = list ? list.id : 0;
+                self.form.name = list ? list.name : '';
+                self.form.description = list ? list.description : '';
+                self.form.private = list ? list.private : false;
 
                 self.moduleClass = 'modal is-active';
                 setTimeout(function () {
@@ -73,16 +87,22 @@
                 axios.defaults.headers.common['X-WP-Nonce'] = listig.nonce;
                 axios.post(listig.restUrl + '/listing/' + self.form.id, self.form)
                     .then(function (response) {
-                        self.form.name='';
-                        self.form.description='';
-                        self.form.private=false;
+                        self.form.name = '';
+                        self.form.description = '';
+                        self.form.private = false;
+                        window.eventBus.$emit('list-rebound');
                         self.moduleClass = 'modal';
                     });
             },
             destroy: function () {
                 let self = this;
 
-                self.moduleClass = 'modal';
+                axios.defaults.headers.common['X-WP-Nonce'] = listig.nonce;
+                axios.delete(listig.restUrl + '/listing/' + self.form.id)
+                    .then(function (response) {
+                        window.eventBus.$emit('list-rebound');
+                        self.moduleClass = 'modal';
+                    });
             }
         }
     };

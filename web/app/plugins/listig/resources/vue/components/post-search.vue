@@ -54,10 +54,6 @@
     </span>
                 mojs
             </a>
-            <label class="panel-block">
-                <input type="checkbox">
-                Remember me
-            </label>
             <div class="panel-block">
                 <button class="button is-primary is-outlined is-fullwidth">
                     Reset all filters
