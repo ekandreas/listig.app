@@ -8,14 +8,13 @@
                 </a>
             </p>
             <a class="panel-block">
-                post 1
+                { Drag your post here! }
             </a>
-            <a class="panel-block">
-                post 2
-            </a>
-            <a class="panel-block">
-                post 3
-            </a>
+            <div class="panel-block">
+                <div class="control">
+                    <button class="button is-primary is-outlined is-fullwidth">Save</button>
+                </div>
+            </div>
         </nav>
     </div>
 </template>
