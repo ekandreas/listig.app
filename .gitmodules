@@ -1,0 +1,3 @@
+[submodule "web/app/plugins/listig"]
+	path = web/app/plugins/listig
+	url = git@github.com:ekandreas/listig.git
