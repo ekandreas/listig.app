@@ -1,31 +1,18 @@
 {
-  "name": "roots/bedrock",
+  "name": "ekandreas/listig.app",
   "type": "project",
   "license": "MIT",
-  "description": "WordPress boilerplate with modern development tools, easier configuration, and an improved folder structure",
-  "homepage": "https://roots.io/bedrock/",
+  "description": "WordPress development environment based on Roots/Bedrock",
   "authors": [
     {
-      "name": "Scott Walkinshaw",
-      "email": "scott.walkinshaw@gmail.com",
-      "homepage": "https://github.com/swalkinshaw"
-    },
-    {
-      "name": "Ben Word",
-      "email": "ben@benword.com",
-      "homepage": "https://github.com/retlehs"
+      "name": "Andreas Ek",
+      "email": "andreas@elseif.se",
+      "homepage": "https://www.elseif.se"
     }
   ],
   "keywords": [
-    "bedrock", "roots", "wordpress", "stack", "composer", "vagrant", "wp"
+    "wordpress", "development", "development-environment", "wordpress-plugin"
   ],
-  "support": {
-    "issues": "https://github.com/roots/bedrock/issues",
-    "forum": "https://discourse.roots.io/category/bedrock"
-  },
-  "config": {
-    "preferred-install": "dist"
-  },
   "repositories": [
     {
       "type": "composer",
